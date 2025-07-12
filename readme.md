@@ -32,7 +32,7 @@ Um blog pessoal de resenhas literárias onde o usuário pode adicionar, editar e
 ## Como utilizar:
 
 ```
-git clone
+git clone https://github.com/Gustavo-Hono/books_read-project.git
 
 # Instala os recursos necessários
 npm i
