@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <h1>Gustavo Seidi Hono</h1>
+        <button><a href="/posts"> Postar livros </a></button>
+
+        <h2>Livros que eu já li</h2>
+        <p>
+          Bem-vindo ao meu espaço de leitura! Este blog é um registro pessoal
+          dos livros que li ao longo da minha vida. Aqui compartilho minhas
+          impressões, notas e aprendizados de cada obra, desde clássicos da
+          literatura até leituras mais contemporâneas. Acredito que cada livro
+          tem algo único a oferecer — seja uma ideia provocadora, um novo olhar
+          sobre o mundo ou simplesmente um bom momento de imersão. Registrar
+          essas experiências é uma forma de eternizar o impacto que cada
+          história teve em mim. Você encontrará nesta página uma lista
+          organizada dos livros que li, com avaliações, resenhas curtas e,
+          claro, a capa de cada um para facilitar a identificação. Além disso, é
+          possível ordenar as leituras por nota ou data, caso queira ver meus
+          favoritos ou os mais recentes. Sinta-se à vontade para explorar,
+          comentar ou até mesmo se inspirar para a sua próxima leitura!
+        </p>
+      </div>
+
+      <div class="content">
+        <% books.forEach(book => { %>
+        <div class="livro">
+          <img
+            src="https://covers.openlibrary.org/b/olid/<%= book.open_library_id %>-M.jpg"
+            alt="Capa do livro"
+          />
+          <div class="texto">
+            <h3><%= book.title %></h3>
+            <h3 class="rating"><%= book.ratings %></h3>
+            <h3 class="review"><%= book.review %></h3>
+            <div class="botoes">
+              <a href="/posts/<%= book.id %>">
+                <img src="/images/edit.svg" alt="Editar" />
+              </a>
+              <form action="/api/delete/<%= book.id %>" method="post">
+                <button type="submit">
+                  <img src="/images/Group.svg" alt="Deletar" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
